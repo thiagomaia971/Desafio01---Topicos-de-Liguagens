@@ -7,13 +7,13 @@ import java.io.IOException;
 
 public class WriteText {
 
-	public static float ReturnSoma(String LocalFile) throws IOException {
+	public static int ReturnSoma(String LocalFile) throws IOException {
 		long timeIni = System.currentTimeMillis(), timeFinal, deltaTime;
 		int contLine = ReturnLengh(LocalFile), posResultado = 1, posC = 0;
-		float[] resultado = new float[contLine];
-		float resFinal = 0;
+		int[] resultado = new int[contLine];
+		int resFinal = 0;
 
-		float[][] matriz = new float[contLine][contLine];
+		int[][] matriz = new int[contLine][contLine];
 
 		PopulationMatriz(LocalFile, matriz);
 		
@@ -72,7 +72,7 @@ public class WriteText {
 
 	}
 
-	public static float[][] PopulationMatriz(String LocalFile, float[][] Matriz)
+	public static int[][] PopulationMatriz(String LocalFile, int[][] Matriz)
 			throws IOException {
 
 		String line = null;
@@ -86,12 +86,12 @@ public class WriteText {
 
 			while (line != null) {
 				if (contLine == 0) {
-					Matriz[contLine][contStr] = Float.parseFloat(line);
+					Matriz[contLine][contStr] = Integer.parseInt(line);
 				} else {
 
 					String[] splitT = line.split(" ");
 					for (int i = 0; i < splitT.length; i++) {
-						Matriz[contLine][i] = Float.parseFloat(splitT[i]);
+						Matriz[contLine][i] = Integer.parseInt(splitT[i]);
 					}
 				}
 				line = writeFile.readLine();
